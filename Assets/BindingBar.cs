@@ -8,7 +8,6 @@ public class BindingBar : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		progress = (int) Mathf.Floor (goal / 4);
-		Debug.Log ("Goal: " + goal + " Progress: " + progress);
 	}
 	
 	// Update is called once per frame
@@ -18,18 +17,10 @@ public class BindingBar : MonoBehaviour {
 
 	public void DamageDemon() {
 		progress++;
-
-		if (progress >= goal) {
-			Debug.Log ("demon has been bound");
-		}
 	}
 
 	public void DamagePlayer() {
-		progress -= 1;//damage; // todo temp
-
-		if (progress <= 0) {
-			Debug.Log ("player is dead");
-		}
+		progress -= 1;//damage; // todo parameter
 	}
 
 	public int GetGoal() {
@@ -41,10 +32,10 @@ public class BindingBar : MonoBehaviour {
 	}
 
 	public bool IsPlayerDead() {
-		return progress == 0;
+		return progress <= 0;
 	}
 
 	public bool IsDemonBound() {
-		return progress == goal;
+		return progress >= goal;
 	}
 }

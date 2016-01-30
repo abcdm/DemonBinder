@@ -36,7 +36,9 @@ public class TouchDetector : MonoBehaviour {
 		if (!sequencer.CheckSequence (rune)) {
 			bar.DamagePlayer ();
 
-			if (!bar.IsPlayerDead()) {
+			if (bar.IsPlayerDead ()) {
+				Debug.Log ("Player is dead");
+			} else {
 				gameController.NextSequence ();
 
 				Debug.Log ("Incorrect rune");
@@ -45,7 +47,9 @@ public class TouchDetector : MonoBehaviour {
 		} else if (sequencer.IsSequenceComplete()) {
 			bar.DamageDemon ();
 
-			if (!bar.IsDemonBound()) {
+			if (bar.IsDemonBound ()) { 
+				Debug.Log ("Demon is bound");
+			} else {
 				gameController.NextSequence ();
 				Debug.Log ("Sequence correct");
 				Debug.Log ("Progress: " + bar.GetProgress ());	
