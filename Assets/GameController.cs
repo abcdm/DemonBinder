@@ -8,10 +8,15 @@ public class GameController : MonoBehaviour {
 	public GameObject greenSqaure; 
 	public GameObject redSqauare; 
 	private GameObject currentGameObject; 
-	private int[] tempArray; 
+	private int[] sequence; 
 	// Use this for initialization
 	void Start () {
-		tempArray = new int[]{0, 1, 1, 4, 3}; 
+		NextSequence ();
+	}
+
+	public void NextSequence () {
+		GetComponent<Sequence> ().ResetPosition ();
+		sequence = GetComponent<Sequence>().GenerateSequence(3); // todo determine length
 		StartCoroutine (waitForNextRune());
 	}
 	
@@ -22,8 +27,8 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator waitForNextRune ()
 	{
-		for (int i = 0; i < tempArray.Length; i++) {
-			switch(tempArray[i]){
+		for (int i = 0; i < sequence.Length; i++) {
+			switch(sequence[i]){
 			case 0:
 				Instantiate (blueSquare, new Vector2 (0, 0), Quaternion.identity);
 				break;
