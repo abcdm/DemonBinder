@@ -58,4 +58,8 @@ public class Sequence : MonoBehaviour {
 		position++;
 		return correct;
 	}
+
+	public bool IsSequenceComplete() {
+		return position >= sequence.Length;
+	}
 }

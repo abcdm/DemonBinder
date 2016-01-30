@@ -10,10 +10,15 @@ public class GameController : MonoBehaviour {
 	public GameObject darkOverlay; 
 	private GameObject currentGameObject; 
 
-	private int[] tempArray; 
+	private int[] sequence; 
 	// Use this for initialization
 	void Start () {
-		tempArray = new int[]{2, 3, 2, 3, 2}; 
+		NextSequence ();
+	}
+
+	public void NextSequence () {
+		GetComponent<Sequence> ().ResetPosition ();
+		sequence = GetComponent<Sequence>().GenerateSequence(3); // todo determine length
 		StartCoroutine (waitForNextRune());
 	}
 	
@@ -24,10 +29,10 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator waitForNextRune ()
 	{
-		
-		for (int i = 0; i < tempArray.Length; i++) {
+
+		for (int i = 0; i < sequence.Length; i++) {
 			Instantiate (darkOverlay, new Vector2 (0, 0), Quaternion.identity);
-			switch(tempArray[i]){
+			switch(sequence[i]){
 			case 0:
 				Instantiate (blueSquare, new Vector2 (0, 0), Quaternion.identity);
 				break;

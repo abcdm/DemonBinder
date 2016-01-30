@@ -94,9 +94,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 63508514}
   - 114: {fileID: 63508515}
+  - 114: {fileID: 63508516}
+  - 114: {fileID: 63508517}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,12 +126,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6fd81770255486c8908f42aeb6fe19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueSquare: {fileID: 194196, guid: 53c19907613f24ea092d4f4e05a343eb, type: 2}
-  yellowSquare: {fileID: 151388, guid: ec8f83c7f19444ae8b8cd7b119d638bd, type: 2}
-  whiteSquare: {fileID: 161390, guid: cd8249bc045d94f8cbe8068db9451fd6, type: 2}
+  blueSquare: {fileID: 0}
+  yellowSquare: {fileID: 0}
+  whiteSquare: {fileID: 0}
   greenSqaure: {fileID: 190056, guid: b085741ab05c64f2fae236dab3c411c4, type: 2}
   redSqauare: {fileID: 103586, guid: d14f4cbb772b4498187f26072a2547cd, type: 2}
-  darkOverlay: {fileID: 143970, guid: d950f3bfaa08f4b76bd568448d843d86, type: 2}
+  darkOverlay: {fileID: 0}
+--- !u!114 &63508516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63508513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1977307ca884527a3c8459588781c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &63508517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63508513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981e2a2a60b594592b32b0d4d6839b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: 4
 --- !u!1 &664423018
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,6 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a42f6fd979674b798ddbc0a321642c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rune: 4
 --- !u!212 &979309296
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -571,7 +597,6 @@ GameObject:
   - 212: {fileID: 1130247035}
   - 114: {fileID: 1130247037}
   - 61: {fileID: 1130247039}
-  - 114: {fileID: 1130247038}
   m_Layer: 0
   m_Name: GreenSq
   m_TagString: Untagged
@@ -632,17 +657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a42f6fd979674b798ddbc0a321642c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1130247038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1130247034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a42f6fd979674b798ddbc0a321642c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  rune: 2
 --- !u!61 &1130247039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -792,6 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a42f6fd979674b798ddbc0a321642c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rune: 1
 --- !u!212 &1922022996
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -905,6 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a42f6fd979674b798ddbc0a321642c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rune: 0
 --- !u!61 &2058962611
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -930,7 +947,6 @@ GameObject:
   - 212: {fileID: 2144339107}
   - 114: {fileID: 2144339109}
   - 61: {fileID: 2144339111}
-  - 114: {fileID: 2144339110}
   m_Layer: 0
   m_Name: RedSq
   m_TagString: Untagged
@@ -991,17 +1007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a42f6fd979674b798ddbc0a321642c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2144339110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2144339106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a42f6fd979674b798ddbc0a321642c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  rune: 3
 --- !u!61 &2144339111
 BoxCollider2D:
   m_ObjectHideFlags: 0
