@@ -40,12 +40,12 @@ public class GameController : MonoBehaviour {
 				Instantiate (whiteSquare, new Vector2 (0, 0), Quaternion.identity);
 				break; 
 			}
-			yield return new WaitForSeconds(2f);
+			yield return new WaitForSeconds(.5f);
 
 			currentGameObject = GameObject.FindGameObjectWithTag ("bigRune");
 			Destroy (currentGameObject);
 
-			yield return new WaitForSeconds(2f);
+			yield return new WaitForSeconds(.5f);
 			waitForNextRune ();
 
 		}	
