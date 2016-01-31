@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
 	private int[] sequence; 
 	// Use this for initialization
 	void Start () {
-		NextSequence ();
+		//NextSequence ();
 	}
 
 	public void NextSequence () {

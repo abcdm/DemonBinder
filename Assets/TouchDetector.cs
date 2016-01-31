@@ -25,6 +25,7 @@ public class TouchDetector : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
+		Debug.Log (gameObject.name);
 		if (!disableMouseDown) {
 			if (!colorIsChanged) {
 				gameObject.GetComponent<SpriteRenderer> ().color = new Color (.7f, .7f, .7f, 1f);
@@ -48,27 +49,27 @@ public class TouchDetector : MonoBehaviour {
 				gameController.ShakeCamera ();
 
 				if (bar.IsPlayerDead ()) {
-					Debug.Log ("Player is dead");
+					//Debug.Log ("Player is dead");
 				} else {
 					StartCoroutine (waitBeforeNextSeq (gameController));
 
 
-					Debug.Log ("Incorrect rune");
-					Debug.Log ("Progress: " + bar.GetProgress ());
+					//Debug.Log ("Incorrect rune");
+					//Debug.Log ("Progress: " + bar.GetProgress ());
 				}
 			} else if (sequencer.IsSequenceComplete ()) {
 				bar.DamageDemon ();
 
 				if (bar.IsDemonBound ()) { 
-					Debug.Log ("Demon is bound");
+					//Debug.Log ("Demon is bound");
 				} else {
 					StartCoroutine (waitBeforeNextSeq (gameController));
 
-					Debug.Log ("Sequence correct");
-					Debug.Log ("Progress: " + bar.GetProgress ());	
+					//Debug.Log ("Sequence correct");
+					//Debug.Log ("Progress: " + bar.GetProgress ());	
 				}
 			}
-			Debug.Log ("Disabling mouse");
+			//Debug.Log ("Disabling mouse");
 			disableMouseUp = true;
 		}
 	}
@@ -78,7 +79,7 @@ public class TouchDetector : MonoBehaviour {
 		yield return new WaitForSeconds(.2f);
 		colorIsChanged = false; 
 		gameObject.GetComponent<SpriteRenderer> ().color = objectColor; 
-		Debug.Log ("Enabling mouse");
+		//Debug.Log ("Enabling mouse");
 		disableMouseDown = false; 
 		disableMouseUp = false; 
 	}
