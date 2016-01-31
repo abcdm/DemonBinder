@@ -33,7 +33,7 @@ public class Sequence : MonoBehaviour {
 		for (int i = 0; i < length; i++) {
 			do {
 				generateNumber = false;
-				number = Random.Range (0, 4);
+				number = Random.Range (0, 5);
 
 				if (number == recent) {
 					if (doubled) {
