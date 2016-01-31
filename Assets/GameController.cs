@@ -9,17 +9,26 @@ public class GameController : MonoBehaviour {
 	public GameObject redSqauare; 
 	public GameObject darkOverlay; 
 	private GameObject currentGameObject; 
+	private GameObject[] runes;
 
 	private int[] sequence; 
 	// Use this for initialization
 	void Start () {
+		runes = GameObject.FindGameObjectsWithTag ("clickRune");
 		NextSequence ();
 	}
 
 	public void NextSequence () {
 		GetComponent<Sequence> ().ResetPosition ();
 		sequence = GetComponent<Sequence>().GenerateSequence(3); // todo determine length
+		SwitchRuneColliders (false);
 		StartCoroutine (waitForNextRune());
+	}
+
+	public void SwitchRuneColliders(bool flag) {
+		foreach (GameObject rune in runes) {
+			rune.GetComponent<BoxCollider2D> ().enabled = flag;
+		}
 	}
 
 	public void ShakeCamera() {
@@ -63,6 +72,7 @@ public class GameController : MonoBehaviour {
 
 		}	
 		Destroy(GameObject.FindGameObjectWithTag("DarkOverlay"));
+		SwitchRuneColliders (true);
 
 	}
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bigRune
   - DarkOverlay
+  - clickRune
   layers:
   - Default
   - TransparentFX
