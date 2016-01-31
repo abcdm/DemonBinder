@@ -23,12 +23,15 @@ public class BindingBar : MonoBehaviour {
 
 	public void MoveBar(int direction) {
 		Vector3 move = new Vector3 (direction * stepX, 0f, 0f);
+		float movedX = (healthBar.transform.position + move).x;
 
-
-
-		Debug.Log (healthBar.transform.position);
-//		Debug.Log (healthBar.transform.right + move);
-		healthBar.transform.Translate (move);
+		if (movedX > rightX) {
+			healthBar.transform.position = new Vector3(rightX, healthBar.transform.position.y, 0f);
+		} else if (movedX < leftX) {
+			healthBar.transform.position = new Vector3(leftX, healthBar.transform.position.y, 0f);
+		} else {
+			healthBar.transform.Translate (move);
+		}
 	}
 
 	public void DamageDemon() {
