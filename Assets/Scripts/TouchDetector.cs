@@ -38,7 +38,7 @@ public class TouchDetector : MonoBehaviour {
 				gameController.ShakeCamera ();
 
 				if (bar.IsPlayerDead ()) {
-					//Debug.Log ("Player is dead");
+					Application.LoadLevel ("GameOver");
 				} else {
 					disableColliders = true;
 					gameController.SwitchRuneColliders (false);
