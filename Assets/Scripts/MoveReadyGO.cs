@@ -37,6 +37,7 @@ public class MoveReadyGO : MonoBehaviour {
 	IEnumerator KillIt ()
 	{
 		yield return new WaitForSeconds(2);
+		Camera.main.GetComponent<AudioSource> ().Play ();
 		GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().NextSequence ();
 		Destroy (gameObject);
 	}
