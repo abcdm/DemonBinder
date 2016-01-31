@@ -2,21 +2,23 @@
 using System.Collections;
 
 public class TouchDetector : MonoBehaviour {
+
 	public int rune;
-	private Color objectColor = new Color(0f, 0f, 0f, 1f); 
+	private Color objectColor = new Color(255f, 255f, 255f, 255f); 
 	private bool colorIsChanged;
 	// Use this for initialization
 
 	void Start () {
-		objectColor = gameObject.GetComponent<SpriteRenderer> ().color;
+		//objectColor = gameObject.GetComponent<SpriteRenderer> ().color;
+		gameObject.GetComponent<SpriteRenderer> ().color = new Color(255f, 255f, 255f, 255f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(colorIsChanged == true){
-			StartCoroutine(ChangeState());
-
+			StartCoroutine(ChangeState());	
 		}
+
 
 	}
 
@@ -25,10 +27,12 @@ public class TouchDetector : MonoBehaviour {
 			gameObject.GetComponent<SpriteRenderer> ().color = new Color (.7f, .7f, .7f, 1f);
 			gameObject.GetComponent<AudioSource> ().Play();
 			colorIsChanged = true;
+			Debug.Log (gameObject.GetComponent<SpriteRenderer> ().color);
 		}
 	}
 
 	void OnMouseUp() {
+		
 		GameObject controllerObj = GameObject.FindGameObjectWithTag ("GameController");
 		Sequence sequencer = controllerObj.GetComponent<Sequence> ();
 		GameController gameController = controllerObj.GetComponent<GameController> ();
@@ -41,7 +45,8 @@ public class TouchDetector : MonoBehaviour {
 			if (bar.IsPlayerDead ()) {
 				Debug.Log ("Player is dead");
 			} else {
-				gameController.NextSequence ();
+				StartCoroutine(waitBeforeNextSeq(gameController));
+
 
 				Debug.Log ("Incorrect rune");
 				Debug.Log ("Progress: " + bar.GetProgress ());
@@ -52,7 +57,8 @@ public class TouchDetector : MonoBehaviour {
 			if (bar.IsDemonBound ()) { 
 				Debug.Log ("Demon is bound");
 			} else {
-				gameController.NextSequence ();
+				StartCoroutine(waitBeforeNextSeq(gameController));
+
 				Debug.Log ("Sequence correct");
 				Debug.Log ("Progress: " + bar.GetProgress ());	
 			}
@@ -61,8 +67,14 @@ public class TouchDetector : MonoBehaviour {
 
 	IEnumerator ChangeState ()
 	{
-		yield return new WaitForSeconds(.5f);
+		yield return new WaitForSeconds(.2f);
 		colorIsChanged = false; 
 		gameObject.GetComponent<SpriteRenderer> ().color = objectColor; 
+	}
+
+	IEnumerator waitBeforeNextSeq (GameController gc )
+	{
+		yield return new WaitForSeconds (2);
+		gc.NextSequence ();
 	}
 }
