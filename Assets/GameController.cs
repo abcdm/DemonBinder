@@ -21,6 +21,11 @@ public class GameController : MonoBehaviour {
 		sequence = GetComponent<Sequence>().GenerateSequence(3); // todo determine length
 		StartCoroutine (waitForNextRune());
 	}
+
+	public void ShakeCamera() {
+		Camera camera = Camera.main;
+		camera.GetComponent<CameraShake> ().shake = .5f;
+	}
 	
 	// Update is called once per frame
 	void Update () {

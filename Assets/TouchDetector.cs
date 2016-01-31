@@ -22,7 +22,8 @@ public class TouchDetector : MonoBehaviour {
 
 	void OnMouseDown(){
 		if (!colorIsChanged) {
-			gameObject.GetComponent<SpriteRenderer> ().color = new Color (0f, 0f, 0f, 1f);
+			gameObject.GetComponent<SpriteRenderer> ().color = new Color (.7f, .7f, .7f, 1f);
+			gameObject.GetComponent<AudioSource> ().Play();
 			colorIsChanged = true;
 		}
 	}
@@ -35,6 +36,7 @@ public class TouchDetector : MonoBehaviour {
 
 		if (!sequencer.CheckSequence (rune)) {
 			bar.DamagePlayer ();
+			gameController.ShakeCamera ();
 
 			if (bar.IsPlayerDead ()) {
 				Debug.Log ("Player is dead");
