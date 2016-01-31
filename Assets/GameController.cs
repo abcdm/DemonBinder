@@ -34,9 +34,8 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator waitForNextRune ()
 	{
-
+		Instantiate (darkOverlay, new Vector2 (0, 0), Quaternion.identity);
 		for (int i = 0; i < sequence.Length; i++) {
-			Instantiate (darkOverlay, new Vector2 (0, 0), Quaternion.identity);
 			switch(sequence[i]){
 			case 0:
 				Instantiate (blueSquare, new Vector2 (0, 0), Quaternion.identity);
@@ -57,13 +56,13 @@ public class GameController : MonoBehaviour {
 			yield return new WaitForSeconds(.5f);
 
 			currentGameObject = GameObject.FindGameObjectWithTag ("bigRune");
-			Destroy(GameObject.FindGameObjectWithTag("DarkOverlay"));
 			Destroy (currentGameObject);
 
 			yield return new WaitForSeconds(.5f);
 			waitForNextRune ();
 
 		}	
+		Destroy(GameObject.FindGameObjectWithTag("DarkOverlay"));
 
 	}
 }

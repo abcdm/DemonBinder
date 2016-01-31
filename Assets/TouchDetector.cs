@@ -37,7 +37,7 @@ public class TouchDetector : MonoBehaviour {
 
 	void OnMouseUp() {
 
-		if (disableMouseUp == false) {
+		if (!disableMouseUp) {
 			GameObject controllerObj = GameObject.FindGameObjectWithTag ("GameController");
 			Sequence sequencer = controllerObj.GetComponent<Sequence> ();
 			GameController gameController = controllerObj.GetComponent<GameController> ();
