@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		runes = GameObject.FindGameObjectsWithTag ("clickRune");
-		NextSequence ();
+		//NextSequence ();
 	}
 
 	public void NextSequence () {

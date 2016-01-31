@@ -38,7 +38,7 @@ public class TouchDetector : MonoBehaviour {
 				gameController.ShakeCamera ();
 
 				if (bar.IsPlayerDead ()) {
-					Debug.Log ("Player is dead");
+					//Debug.Log ("Player is dead");
 				} else {
 					disableColliders = true;
 					gameController.SwitchRuneColliders (false);
@@ -51,17 +51,16 @@ public class TouchDetector : MonoBehaviour {
 				bar.DamageDemon ();
 
 				if (bar.IsDemonBound ()) { 
-					Debug.Log ("Demon is bound");
+					//Debug.Log ("Demon is bound");
 				} else {
 					disableColliders = true;
 					gameController.SwitchRuneColliders (false);
 					StartCoroutine (waitBeforeNextSeq (gameController));
 
-					Debug.Log ("Sequence correct");
-					Debug.Log ("Progress: " + bar.GetProgress ());	
+					//Debug.Log ("Sequence correct");
+					//Debug.Log ("Progress: " + bar.GetProgress ());	
 				}
 			}
-
 			colorIsChanged = true;
 		}
 	}
